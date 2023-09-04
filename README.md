@@ -59,7 +59,13 @@ The main goal of this project is to create a functional calculator with the foll
 Here is a screenshot of the project's interface:
 
 ***desktop view***
+
 ![Alt text](./src/assets/image.png)
+
+***functional view***
+
+![My Calculator - Brave 2023-09-04 06-54-23](https://github.com/erickfabiandev/calculator/assets/109047392/8b29c208-329c-4abf-8f23-4d3c65ac9861)
+
 
 ***view of the tests***
 
