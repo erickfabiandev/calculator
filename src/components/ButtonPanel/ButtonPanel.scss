@@ -1,0 +1,22 @@
+.button-panel {
+  width: 100%;
+  height: 100%;
+  background-color: #e8e9ea;
+
+  tbody {
+    td {
+      width: 25%;
+      padding: 2px;
+    }
+
+    .equals-sign {
+      .button {
+        background-color: #7FB3D5;
+
+        &:hover {
+          background-color: #2874A6;
+        }
+      }
+    }
+  }
+}
