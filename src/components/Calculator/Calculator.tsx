@@ -38,7 +38,7 @@ class Calculator extends Component<object, CalculatorState>{
           currentValue: prevState.currentValue + value,
         }));
       }
-    } else if (value.match(/[\+\-\*\/]/)) {
+    } else if (value.match(/[\+\-\x\/]/)) {
       if (!this.state.operator) {
         this.setState((prevState) => ({
           operator: value,
