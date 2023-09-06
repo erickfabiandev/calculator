@@ -3,10 +3,17 @@ import Screen from '../components/Screen/Screen';
 import '@testing-library/jest-dom';
 
 
-test('it should display the current value', () => {
-  const { getByText } = render(<Screen currentValue="42" />);
+describe('Screen calculator testing', () => {
+  test('it should display the current value', () => {
+    //Arrange
+    const value = '42'
+    const { getByText } = render(<Screen currentValue={value} />);
 
-  const screenElement = getByText('42');
+    //Act
+    const screenElement = getByText('42');
 
-  expect(screenElement).toBeInTheDocument();
+    //Assert
+    expect(screenElement).toBeInTheDocument();
+  });
+
 });

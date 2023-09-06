@@ -7,6 +7,7 @@ interface CalculatorState {
   currentValue: string;
   previousValue: string;
   operator: string | null;
+  secondNumber: boolean
 }
 
 class Calculator extends Component<object, CalculatorState>{
@@ -14,7 +15,8 @@ class Calculator extends Component<object, CalculatorState>{
   state: CalculatorState = {
     currentValue: '0',
     previousValue: '',
-    operator: null
+    operator: null,
+    secondNumber: false
   }
 
   componentDidMount() {
@@ -31,11 +33,11 @@ class Calculator extends Component<object, CalculatorState>{
 
   handleButtonClick = (value: string) => {
     if (value.match(/[0-9]/)) {
-      if (this.state.currentValue === '0') {
-        this.setState({ currentValue: value });
+      if (this.state.currentValue === '0' || this.state.currentValue === 'Error' || this.state.secondNumber) {
+        this.setState({ currentValue: value, secondNumber: false });
       } else {
         this.setState((prevState) => ({
-          currentValue: prevState.currentValue + value,
+          currentValue: prevState.currentValue.length < 14 ? prevState.currentValue + value : prevState.currentValue,
         }));
       }
     } else if (value.match(/[\+\-\x\/]/)) {
@@ -43,7 +45,7 @@ class Calculator extends Component<object, CalculatorState>{
         this.setState((prevState) => ({
           operator: value,
           previousValue: prevState.currentValue,
-          currentValue: '0',
+          secondNumber: true
         }));
       }
     } else if (value === '=') {
@@ -53,8 +55,9 @@ class Calculator extends Component<object, CalculatorState>{
           parseFloat(this.state.currentValue),
           this.state.operator
         );
+
         this.setState({
-          currentValue: result.toString(),
+          currentValue: result != 'Error' ? parseFloat(result.toFixed(13)).toString() : result,
           previousValue: '',
           operator: null,
         });
@@ -65,6 +68,14 @@ class Calculator extends Component<object, CalculatorState>{
         previousValue: '',
         operator: null,
       });
+    } else if (value === 'DEL') {
+      this.setState(prevState => ({
+        currentValue: prevState.currentValue.length > 1 ? prevState.currentValue.slice(0, -1) : '0'
+      }));
+    } else if (value === '.') {
+      this.setState(prevState => ({
+        currentValue: (!prevState.currentValue.includes('.') && this.state.currentValue.length < 14) ? prevState.currentValue + value : prevState.currentValue
+      }));
     }
   };
 

@@ -47,12 +47,11 @@ The main goal of this project is to create a functional calculator with the foll
 - Support for basic operations like addition, subtraction, multiplication, and division.
 - Intuitive and user-friendly UI.
 - Ability to display and calculate multiple sequential operations.
-- Support for integers (no decimals).
+- Support for integers and decimals.
+- Only accepts numbers up to 14 digits.
 
 **Note:** Currently, the calculator only supports integers and performs addition of two numbers at a time. However, as part of continued development, the following improvements are planned:
 
-- Adding support for decimal numbers.
-- Implementing the "DEL" function to delete digits individually.
 - Incorporating other advanced mathematical functions like trigonometry and square roots.
 
 ### Screenshot 📷 
@@ -94,8 +93,7 @@ During this project, I learned how to:
 In future iterations of this project, I plan to:
 
 - Enhance the design and appearance of the calculator.
-- Implement support for decimal numbers.
-- Add the "DEL" function to delete digits individually.
+- Implement support for numbers greater than 14 digits.
 - Extend unit tests to cover new features and edge cases.
 - Incorporate other advanced mathematical functions.
 
